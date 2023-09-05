@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Check if the WATER and STIR environment variables are set
+if [ -z "$WATER" ] || [ -z "$STIR" ]; then
+    echo "ERROR: One or both of the environment variables WATER and STIR are not set."
+    exit 1
+fi
+
+# Convert WATER and STIR from base water and base stir to base 10
+water_base10=$(echo "ibase=water; $WATER" | bc)
+stir_base10=$(echo "ibase=stir; $STIR" | bc)
+
+# Add the converted values
+result_base10=$((water_base10 + stir_base10))
+
+# Convert the result to base bestchol
+result_bestchol=$(echo "obase=bestchol; $result_base10" | bc)
+
+# Print the result
+echo "$result_bestchol"
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Define a new local variable
+BEST="School"
+
+# Print the value of the local variable
+echo "The value of BEST is: $BEST"
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Check if the BREATH and LOVE environment variables are set
+if [ -z "$BREATH" ] || [ -z "$LOVE" ]; then
+    echo "ERROR: One or both of the environment variables BREATH and LOVE are not set."
+    exit 1
+fi
+
+# Perform the calculation using the 'bc' command
+result=$(echo "$BREATH^$LOVE" | bc)
+
+# Print the result followed by a new line
+echo "$result"
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Split the PATH variable into an array using ":" as the delimiter
+IFS=":" read -ra path_dirs <<< "$PATH"
+
+# Count the number of elements in the array (number of directories)
+num_dirs="${#path_dirs[@]}"
+
+# Print the result
+echo "Number of directories in PATH: $num_dirs"
+

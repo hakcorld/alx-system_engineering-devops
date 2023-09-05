@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Check if the BINARY environment variable is set
+if [ -z "$BINARY" ]; then
+    echo "ERROR: The BINARY environment variable is not set."
+    exit 1
+fi
+
+# Use 'bc' to perform the conversion from binary to decimal
+decimal=$(echo "ibase=2; $BINARY" | bc)
+
+# Print the result in base 10 followed by a new line
+echo "$decimal"
+

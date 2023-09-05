@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Define and export a global variable
+export BEST="School"
+
+# Print the value of the global variable
+echo "The value of BEST is: $BEST"
+

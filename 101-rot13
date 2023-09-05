@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Function to encode text using ROT13
+function rot13_encode() {
+    echo "$1" | tr 'a-zA-Z' 'n-za-mN-ZA-M'
+}
+
+# Function to decode text using ROT13
+function rot13_decode() {
+    echo "$1" | tr 'n-za-mN-ZA-M' 'a-zA-Z'
+}
+
+# Check if the user provided an argument
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <encode|decode> <text>"
+    exit 1
+fi
+
+# Read the operation (encode or decode) and the text from command line arguments
+operation="$1"
+text="$2"
+
+# Perform the requested operation
+case "$operation" in
+    "encode")
+        result=$(rot13_encode "$text")
+        echo "Encoded text: $result"
+        ;;
+    "decode")
+        result=$(rot13_decode "$text")
+        echo "Decoded text: $result"
+        ;;
+    *)
+        echo "Invalid operation. Use 'encode' or 'decode'."
+        exit 1
+        ;;
+esac
+

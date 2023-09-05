@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Check if the POWER and DIVIDE environment variables are set
+if [ -z "$POWER" ] || [ -z "$DIVIDE" ]; then
+    echo "ERROR: One or both of the environment variables POWER and DIVIDE are not set."
+    exit 1
+fi
+
+# Perform the division
+result=$(bc <<< "scale=2; $POWER / $DIVIDE")
+
+# Print the result followed by a new line
+echo "$result"
+

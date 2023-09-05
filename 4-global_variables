@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Iterate through all environment variables and print them
+for var in $(env | cut -d= -f1); do
+    echo "$var=${!var}"
+done
+
